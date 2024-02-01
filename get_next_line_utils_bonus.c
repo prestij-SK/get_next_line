@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 // Alternative strlen, which is not the same as the standard
 size_t	strlen_alt(const char *str)

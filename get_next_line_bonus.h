@@ -1,5 +1,5 @@
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -9,6 +9,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 4
+# endif
+
+# ifndef DESCRIPTER_COUNT
+#  define DESCRIPTER_COUNT 4096
 # endif
 
 char	*get_next_line(int fd);

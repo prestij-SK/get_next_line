@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static size_t	next_line_length(const char *str)
 {
@@ -96,36 +96,36 @@ static char *cut_next_line(const char *scanned_text)
 
 char	*get_next_line(int fd)
 {
-	static char	*scanned_text;
+	static char	*scanned_text[DESCRIPTER_COUNT];
 	char		*next_line;
 	char		*temp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 	{
-		free(scanned_text);
-		scanned_text = NULL;
+		free(scanned_text[fd]);
+		scanned_text[fd] = NULL;
 		return (NULL);
 	}
-	if (!(next_line_length(scanned_text)))
+	if (!(next_line_length(scanned_text[fd])))
 	{
 		next_line = read_from_file(fd, 1, 0);
 		if (next_line)
 		{
-			temp = scanned_text;
-			scanned_text = strjoin_to_left(scanned_text, next_line);
+			temp = scanned_text[fd];
+			scanned_text[fd] = strjoin_to_left(scanned_text[fd], next_line);
 			free(temp);
 			free(next_line);
 		}
 	}
-	if (!scanned_text) // file is fully scanned
+	if (!scanned_text[fd]) // file is fully scanned
 	{
-		free(scanned_text);
-		scanned_text = NULL;
+		free(scanned_text[fd]);
+		scanned_text[fd] = NULL;
 		return (NULL);
 	}
-	next_line = take_next_line(scanned_text);
-	temp = scanned_text;
-	scanned_text = cut_next_line(scanned_text);
+	next_line = take_next_line(scanned_text[fd]);
+	temp = scanned_text[fd];
+	scanned_text[fd] = cut_next_line(scanned_text[fd]);
 	free(temp);
 	return (next_line);
 }
