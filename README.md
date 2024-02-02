@@ -1,4 +1,4 @@
-# get_next_line-42
+# get_next_line
 42 School project (GET_NEXT_LINE)
 
 Created function which returns Dynamically Allocated string with null terminator '\0'.
