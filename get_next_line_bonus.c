@@ -13,6 +13,11 @@ static char	*read_from_file(const int fd)
 	{
 		buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (read_bytes == -1)
+		{
+			free(final_text);
+			return (NULL);
+		}
 		buffer[read_bytes] = '\0';
 		if (read_bytes == 0 && !buffer[0])
 		{
