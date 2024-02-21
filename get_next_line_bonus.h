@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 #include <fcntl.h> // for tests
 #include <stdio.h> // for tests
