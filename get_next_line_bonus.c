@@ -87,7 +87,7 @@ static char *cut_next_line(char *scanned_text)
 // Returns string without '\n' if it is the end of the file.
 char	*get_next_line(int fd)
 {
-	static char	*scanned_text[DESCRIPTOR_COUNT];
+	static char	*scanned_text[OPEN_MAX];
 	char		*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
