@@ -12,10 +12,6 @@
 #  define BUFFER_SIZE 4
 # endif
 
-# ifndef DESCRIPTOR_COUNT
-#  define DESCRIPTOR_COUNT 4096
-# endif
-
 char	*get_next_line(int fd);
 char	*strjoin_to_left(char *s1, const char *s2);
 size_t	strlen_alt(const char *str, const char alt);
