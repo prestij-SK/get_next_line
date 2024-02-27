@@ -48,8 +48,10 @@ char	*strjoin_to_left(char *s1, const char *s2)
 	size_t	i;
 	char	*str_new;
 
-	if (!s2)
+	if (!s2 && !s2)
 		return (NULL);
+	if (!s2)
+		return (s1);
 	str_new = (char *)malloc((sizeof(char)
 				* (strlen_alt(s1, '\0') + strlen_alt(s2, '\0'))) + 1);
 	if (!str_new)
